@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import { TRY_TYPE } from '../constant'
-import { tryFunction } from '../action'
-
+import { MY_NAME } from '../constant'
+import { routerReducer } from 'react-router-redux';
+// console.log(TRY_TYPE);
 
 /**
  * zyx
@@ -13,16 +13,17 @@ import { tryFunction } from '../action'
 
 // export default rootReducer
 
-export const tryState = (state = [], action) => {
-    console.log(action)
+let tryState = (state = [1], action) => {
+    console.log('action.type', action);
+
     switch (action.type) {
-        case TRY_TYPE:
+        case MY_NAME:
             return action.payload
         default:
-            return state
+            return [0, 11]
     }
 }
 export default combineReducers({
-    //在这里导入每个模块的reducer
+    routing: routerReducer,
     tryState
 })

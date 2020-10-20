@@ -1,3 +1,3 @@
 
 
-export const TRY_TYPE = 'TRY_TYPE'
+export const MY_NAME = 'MY_NAME'

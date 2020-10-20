@@ -1,9 +1,20 @@
 
-import { TRY_TYPE } from '../constant'
+import { MY_NAME } from '../constant'
 
-export const tryFunction = (state) => (dispatch) => {
-    dispatch({
-        type: TRY_TYPE,
-        payload: [1, 2, 3]
-    })
-}
+export function tryFunction(state) {
+
+
+    let tempObj = {
+        modalShow: [2, 2, 2]
+    }
+    console.log(1111);
+
+    return (dispatch) => {
+        console.log(2222333);
+
+        dispatch({
+            type: MY_NAME,
+            data: tempObj
+        })
+    }
+}  

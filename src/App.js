@@ -7,19 +7,25 @@ import './App.css';
 const App = (props) => {
   useEffect(() => {
     actions.tryFunction()
-  }, [])
 
+  }, [])
+  let handleClick = () => {
+    console.log('test');
+
+    actions.tryFunction()
+  }
   return (
     <div className="App">
       <header className="App-header">
-        123456
+        <div onClick={handleClick}>测试</div>
+        {props.tryState}
       </header>
     </div>
   );
 }
 
 const mapStateToProps = (state) => ({
-  state: console.log(state.tryState)
+  tryState: state.tryState
 })
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators({
