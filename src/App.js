@@ -5,14 +5,14 @@ import * as actions from './action'
 import './App.css';
 
 const App = (props) => {
+  console.log(props, actions)
   useEffect(() => {
     actions.tryFunction()
 
   }, [])
   let handleClick = () => {
-    console.log('test');
+    props.actions.tryFunction()
 
-    actions.tryFunction()
   }
   return (
     <div className="App">

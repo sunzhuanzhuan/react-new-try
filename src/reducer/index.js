@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import { MY_NAME } from '../constant'
-import { routerReducer } from 'react-router-redux';
 // console.log(TRY_TYPE);
 
 /**
@@ -18,12 +17,11 @@ let tryState = (state = [1], action) => {
 
     switch (action.type) {
         case MY_NAME:
-            return action.payload
+            return action.data
         default:
             return [0, 11]
     }
 }
 export default combineReducers({
-    routing: routerReducer,
     tryState
 })
