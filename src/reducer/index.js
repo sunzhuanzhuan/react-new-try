@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { MY_NAME } from '../constant'
+import { MY_NAME, COMPARE_VALUE } from '../constant'
 // console.log(TRY_TYPE);
 
 /**
@@ -13,8 +13,6 @@ import { MY_NAME } from '../constant'
 // export default rootReducer
 
 let tryState = (state = [1], action) => {
-    console.log('action.type', action);
-
     switch (action.type) {
         case MY_NAME:
             return action.data
@@ -22,6 +20,22 @@ let tryState = (state = [1], action) => {
             return [0, 11]
     }
 }
+let valueCompare = (state = {
+    a: {
+        c: 1
+    },
+    b: {
+        d: 2
+    }
+}, action) => {
+    switch (action.type) {
+        case COMPARE_VALUE:
+            return action.data;
+        default:
+            return state
+    }
+}
 export default combineReducers({
-    tryState
+    tryState,
+    valueCompare
 })

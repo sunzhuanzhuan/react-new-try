@@ -7,17 +7,22 @@ import './App.css';
 const App = (props) => {
   console.log(props, actions)
   useEffect(() => {
-    actions.tryFunction()
+    props.actions.tryFunction()
+    props.actions.CreateNewActions()
 
   }, [])
   let handleClick = () => {
     props.actions.tryFunction()
 
   }
+  let handleState = () => {
+    props.actions.valueCompareFunction()
+  }
   return (
     <div className="App">
       <header className="App-header">
         <div onClick={handleClick}>测试</div>
+        <div onClick={handleState}>修改state的方法</div>
         {props.tryState}
       </header>
     </div>

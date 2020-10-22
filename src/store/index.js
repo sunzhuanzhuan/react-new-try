@@ -10,8 +10,6 @@ import rootReducer from '../reducer';
 //  */
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 const initialState = [];
-const createStoreWithMdware = composeEnhancers(applyMiddleware(
-    thunkMiddleware
-))(createStore);
+const createStoreWithMdware = (composeEnhancers(applyMiddleware(thunkMiddleware)))(createStore);
 const store = createStoreWithMdware(rootReducer, initialState);
 export default store;
