@@ -5,10 +5,11 @@ import * as actions from './action'
 import './App.css';
 
 const App = (props) => {
-  console.log(props, actions)
+  // console.log(props, actions)
   useEffect(() => {
-    props.actions.tryFunction()
-    props.actions.CreateNewActions()
+    props.tryFunction()
+    props.valueCompareFunction()
+    props.CreateNewAction()
 
   }, [])
   let handleClick = () => {
@@ -18,11 +19,13 @@ const App = (props) => {
   let handleState = () => {
     props.actions.valueCompareFunction()
   }
+  // console.log('new', props.news)
   return (
     <div className="App">
       <header className="App-header">
         <div onClick={handleClick}>测试</div>
         <div onClick={handleState}>修改state的方法</div>
+        <div>valueCompare{props.valueCompare.a}</div>
         {props.tryState}
       </header>
     </div>
@@ -30,10 +33,12 @@ const App = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  tryState: state.tryState
+  tryState: state.tryState,
+  news: state.news,
+  valueCompare: state.valueCompare
 })
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators({
+  ...bindActionCreators({
     ...actions
   }, dispatch)
 })
