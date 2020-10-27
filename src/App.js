@@ -7,9 +7,10 @@ import './App.css';
 const App = (props) => {
   // console.log(props, actions)
   useEffect(() => {
-    props.tryFunction()
-    props.valueCompareFunction()
-    props.CreateNewAction()
+    // props.tryFunction()
+    // props.valueCompareFunction()
+    // props.CreateNewAction()
+    props.getList()
 
   }, [])
   let handleClick = () => {
