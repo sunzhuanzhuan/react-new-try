@@ -36,8 +36,8 @@ let news = handleAction('tryAction', (state, action) => ({
     // news: console.log('111', action)
 }), {})
 let list = handleActions({
-    [getList]: (state, action) => {
-        // console.log('action', action)
+    [getList_success]: (state, action) => {
+        console.log('action111111111', action)
         return { a: 'b' }
     }
 }, { a: 'a' })
