@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { MY_NAME, COMPARE_VALUE } from '../constant'
-import { getList } from '../action'
+import { getList, getList_success } from '../action'
 import { handleAction, handleActions } from 'redux-actions'
 
 /**
@@ -30,14 +30,14 @@ let valueCompare = (state = { a: 4 }, action) => {
     }
 }
 
-// console.log('cccccc', getList)
+// console.log('cccccc', getList_success)
 
 let news = handleAction('tryAction', (state, action) => ({
-    news: console.log('111', action)
+    // news: console.log('111', action)
 }), {})
 let list = handleActions({
     [getList]: (state, action) => {
-        console.log(action)
+        // console.log('action', action)
         return { a: 'b' }
     }
 }, { a: 'a' })

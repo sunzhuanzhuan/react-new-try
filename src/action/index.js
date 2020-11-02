@@ -17,14 +17,30 @@ export function tryFunction(state) {
         })
     }
 }
-export const valueCompareFunction = (state) => (dispatch) => {
-    // 只能这样，传不出来response
-    api.get('/toutiao/index?type=top&key=a61227231b675e6097a1de4716456294').then((res) => {
-        dispatch({
-            type: COMPARE_VALUE,
-            data: { a: res.result.stat }
+/**
+ * 因为有thunk的原因
+ * @param {介绍} state 
+ */
+// export const valueCompareFunction = (state) => async (dispatch) => {
+//     let fn = await api.get('/toutiao/index?type=top&key=a61227231b675e6097a1de4716456294').then((res) => {
+//         // console.log('1111111', 'data', res)
+//         return res.reason
+//     })
+//     dispatch({
+//         type: COMPARE_VALUE,
+//         data: { a: fn }
+//     })
+// }
+export const valueCompareFunction = (state) => async (dispatch) => {
+    // 同步的方法只能这样，传不出来response
+    new Promise((reslove, reject) => {
+        api.get('/toutiao/index?type=top&key=a61227231b675e6097a1de4716456294').then((res) => {
+            console.log('1111111', 'data', res)
+            reslove(dispatch({
+                type: COMPARE_VALUE,
+                data: { a: res.reason }
+            }))
         })
-        // return res.result.stat
     })
 }
 
@@ -40,7 +56,7 @@ export const CreateNewAction = createAction('tryAction', () => {
 })
 //CreateHttpActions里面包含成功失败和处理中的状态， 解构出来
 export const { getList, getList_success, getList_failure, getList_padding } =
-    CreateHttpActions('getList', '/news/list');
+    CreateHttpActions('getList', '/toutiao/index?type=top&key=a61227231b675e6097a1de4716456294', { name: '1', type: 'get' });
 // console.log()
 // const getBookList = createAction('BOOK_LIST_GET', () => {
 //     const bookList = [{

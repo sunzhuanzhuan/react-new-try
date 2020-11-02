@@ -9,7 +9,7 @@ const App = (props) => {
   useEffect(() => {
     // props.tryFunction()
     // props.valueCompareFunction()
-    props.CreateNewAction()
+    // props.CreateNewAction()
     props.getList()
 
   }, [])
@@ -18,7 +18,7 @@ const App = (props) => {
 
   }
   let handleState = () => {
-    props.actions.valueCompareFunction()
+    props.valueCompareFunction()
   }
   // console.log('list', props.list)
   return (

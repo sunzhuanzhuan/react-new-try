@@ -9,11 +9,11 @@ import { request } from '../util'
 // 给action提供三种type，分别对应失败的情况和成功，还有请求中
 //
 
-export default (actionType, endpoint) => {
+export default (actionType, endpoint, options) => {
     const payloadCreator = () => {
         return {
             endpoint,
-            endpoint,
+            options
         }
     };
     let CreateHttpActions = {

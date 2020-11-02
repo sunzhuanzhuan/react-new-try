@@ -1,6 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
+import {ajaxMiddleware} from './thunkMiddleware'
 import rootReducer from '../reducer';
+// console.log(',ajaxMiddleware',ajaxMiddleware)
 // /**
 //  * szz
 //  * 2020/6/6
@@ -10,6 +12,8 @@ import rootReducer from '../reducer';
 //  */
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 const initialState = [];
-const createStoreWithMdware = (composeEnhancers(applyMiddleware(thunkMiddleware)))(createStore);
+const createStoreWithMdware = (composeEnhancers(applyMiddleware(
+    thunkMiddleware,ajaxMiddleware
+)))(createStore);
 const store = createStoreWithMdware(rootReducer, initialState);
 export default store;
