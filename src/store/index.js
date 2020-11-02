@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import rootReducer from '../reducer';
 // /**
-//  * zyx
+//  * szz
 //  * 2020/6/6
 //  * 通过createStoreWithMdwareAPI创建createStore
 //  * 1 包裹一个createStore方法 2 包裹扩展redux的中间件

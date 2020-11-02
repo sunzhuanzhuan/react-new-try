@@ -9,7 +9,7 @@ const App = (props) => {
   useEffect(() => {
     // props.tryFunction()
     // props.valueCompareFunction()
-    // props.CreateNewAction()
+    props.CreateNewAction()
     props.getList()
 
   }, [])
@@ -20,7 +20,7 @@ const App = (props) => {
   let handleState = () => {
     props.actions.valueCompareFunction()
   }
-  // console.log('new', props.news)
+  // console.log('list', props.list)
   return (
     <div className="App">
       <header className="App-header">
@@ -36,7 +36,8 @@ const App = (props) => {
 const mapStateToProps = (state) => ({
   tryState: state.tryState,
   news: state.news,
-  valueCompare: state.valueCompare
+  valueCompare: state.valueCompare,
+  list: state.list
 })
 const mapDispatchToProps = (dispatch) => ({
   ...bindActionCreators({

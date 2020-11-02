@@ -42,3 +42,19 @@ export const CreateNewAction = createAction('tryAction', () => {
 export const { getList, getList_success, getList_failure, getList_padding } =
     CreateHttpActions('getList', '/news/list');
 // console.log()
+// const getBookList = createAction('BOOK_LIST_GET', () => {
+//     const bookList = [{
+//         id: '1',
+//         title: '123',
+//         description: '123',
+//     }, {
+//         id: '2',
+//         title: '234',
+//         description: '234',
+//     }];
+//     return bookList;
+// });
+
+// export default {
+//     getBookList,
+// };

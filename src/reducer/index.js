@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { MY_NAME, COMPARE_VALUE } from '../constant'
-import { handleAction } from 'redux-actions'
+import { getList } from '../action'
+import { handleAction, handleActions } from 'redux-actions'
 
 /**
  * zyx
@@ -29,11 +30,21 @@ let valueCompare = (state = { a: 4 }, action) => {
     }
 }
 
+// console.log('cccccc', getList)
+
 let news = handleAction('tryAction', (state, action) => ({
     news: console.log('111', action)
 }), {})
+let list = handleActions({
+    [getList]: (state, action) => {
+        console.log(action)
+        return { a: 'b' }
+    }
+}, { a: 'a' })
+
 export default combineReducers({
     tryState,
     valueCompare,
-    news
+    news,
+    list
 })
