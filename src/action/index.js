@@ -55,8 +55,17 @@ export const CreateNewAction = createAction('tryAction', () => {
 
 })
 //CreateHttpActions里面包含成功失败和处理中的状态， 解构出来
-export const { getList, getList_success, getList_failure, getList_padding } =
-    CreateHttpActions('getList', '/toutiao/index?type=top&key=a61227231b675e6097a1de4716456294', { name: '1', type: 'get' });
+export const {
+    getList,
+    getList_success,
+    getList_failure, getList_padding
+} = CreateHttpActions('getList', '/toutiao/index', 'get', { type: 'top', key: 'a61227231b675e6097a1de4716456294' });
+
+export const {
+    postQuery,
+    postQuery_success,
+    postQuery_failure, postQuery_padding
+} = CreateHttpActions('postQuery', '/sxpd/query', 'post', { key: '1cc20e5ca2a24c9a0c629649026199df', women: '猴子', man: '羊' });
 // console.log()
 // const getBookList = createAction('BOOK_LIST_GET', () => {
 //     const bookList = [{

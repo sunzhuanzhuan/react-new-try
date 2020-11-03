@@ -106,6 +106,10 @@ module.exports = function (proxy, allowedHost) {
       "/toutiao": {
         target: "http://v.juhe.cn/",
         changeOrigin: true
+      },
+      "/sxpd": {
+        target: "http://apis.juhe.cn",
+        changeOrigin: true
       }
     },
     before(app, server) {

@@ -10,7 +10,8 @@ const App = (props) => {
     // props.tryFunction()
     // props.valueCompareFunction()
     // props.CreateNewAction()
-    props.getList()
+    props.postQuery()
+    // props.getList()
 
   }, [])
   let handleClick = () => {

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { MY_NAME, COMPARE_VALUE } from '../constant'
-import { getList, getList_success } from '../action'
+import { getList, getList_success, postQuery_success } from '../action'
 import { handleAction, handleActions } from 'redux-actions'
 
 /**
@@ -37,10 +37,14 @@ let news = handleAction('tryAction', (state, action) => ({
 }), {})
 let list = handleActions({
     [getList_success]: (state, action) => {
-        console.log('action111111111', action)
         return { a: 'b' }
     }
 }, { a: 'a' })
+let query = handleActions({
+    [postQuery_success]: (state, action) => {
+        console.log('action111111111', action)
+    }
+}, {})
 
 export default combineReducers({
     tryState,

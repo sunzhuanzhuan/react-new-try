@@ -19,10 +19,10 @@ export const ajaxMiddleware = store => next => action => {
     const [successType, failureType, requestType] = action.payload.types;
     // console.log('11111111111', successType);
 
-    let { endpoint, options } = action.payload
+    let { endpoint, options, method } = action.payload
     return new Promise(async (resolve, reject) => {
         try {
-            let res = await request(endpoint, options)
+            let res = await request(endpoint, method, options)
             console.log(res);
 
             resolve(res)

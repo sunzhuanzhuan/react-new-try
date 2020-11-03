@@ -9,13 +9,14 @@ import { request } from '../util'
 // 给action提供三种type，分别对应失败的情况和成功，还有请求中
 //
 
-export default (actionType, endpoint, options) => {
+export default (actionType, endpoint,method, options) => {
     const types = [createAction(`${actionType}_success`),
     createAction(`${actionType}_failure`),
     createAction(`${actionType}_padding`)]
     const payloadCreator = () => {
         return {
             endpoint,
+            method,
             options,
             types
         }
