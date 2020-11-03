@@ -1,5 +1,4 @@
 import { request } from '../util'
-import types from './createActions'
 function logger({ getState }) {
     return next => action => {
         console.log('will dispatch', action)
@@ -14,10 +13,12 @@ function logger({ getState }) {
         return returnValue
     }
 }
-console.log('actiontypestypestypes', types)
+// console.log('actiontypestypestypes', types)
 export const ajaxMiddleware = store => next => action => {
 
-    // const [requestType, successType, failureType] = types;
+    const [successType, failureType, requestType] = action.payload.types;
+    // console.log('11111111111', successType);
+
     let { endpoint, options } = action.payload
     return new Promise(async (resolve, reject) => {
         try {
@@ -25,7 +26,7 @@ export const ajaxMiddleware = store => next => action => {
             console.log(res);
 
             resolve(res)
-            // return next(successType(res))
+            return next(successType(res))
         } catch (e) {
             console.log('00000', e)
             reject(e)

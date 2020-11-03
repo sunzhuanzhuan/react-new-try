@@ -10,10 +10,14 @@ import { request } from '../util'
 //
 
 export default (actionType, endpoint, options) => {
+    const types = [createAction(`${actionType}_success`),
+    createAction(`${actionType}_failure`),
+    createAction(`${actionType}_padding`)]
     const payloadCreator = () => {
         return {
             endpoint,
-            options
+            options,
+            types
         }
     };
     let CreateHttpActions = {
