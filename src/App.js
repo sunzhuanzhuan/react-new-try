@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Button } from 'antd';
 import * as actions from './action'
+import EditForm from './editForm/container/EditForm'
 import './App.css';
 
 const App = (props) => {
@@ -24,12 +26,14 @@ const App = (props) => {
   // console.log('list', props.list)
   return (
     <div className="App">
-      <header className="App-header">
+      <Button type="danger">Danger</Button>
+      <EditForm />
+      {/* <header>
         <div onClick={handleClick}>测试</div>
         <div onClick={handleState}>修改state的方法</div>
         <div>valueCompare{props.valueCompare.a}</div>
         {props.tryState}
-      </header>
+      </header> */}
     </div>
   );
 }

@@ -30,7 +30,7 @@ export const ajaxMiddleware = store => next => action => {
         } catch (e) {
             console.log('00000', e)
             reject(e)
-            return next(failureType(ex))
+            return next(failureType(e))
         }
 
     })
